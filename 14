@@ -1,0 +1,180 @@
+A.I. Senchous, [06.11.2025 9:50]
+#14.1
+import math
+X=int(input())
+Y=int(input())
+def Mean(X, Y):
+  if X <= 0 or Y <= 0:
+    print("Оба числа должны быть положительными.")
+  else:
+    AMean = (X + Y)/2
+    GMean = X * Y
+  return AMean, GMean
+arithmetic, geometric = Mean(X, Y)
+print(f"AMean = {arithmetic}, GMean = {geometric}")
+
+A.I. Senchous, [06.11.2025 9:51]
+#14.2
+import math
+R=int(input())
+def Circle(R):
+  if R<=0:
+    print("Ошибка")
+  else:
+    S=math.pi*R**2
+    L=2*math.pi*R
+  return R, L
+square, length = Circle(R)
+print(f"S = {square}, L ={length}")
+
+A.I. Senchous, [06.11.2025 9:51]
+#14.3 import math
+a=int(input())
+def TrianglePS(a):
+  if a<=0:
+    print("Ошибка")
+  else:
+    P=3*a
+    S=(3**(1/2))*a**2/4
+  return P, S
+perimeter, square = TrianglePS(a)
+print(f"P = {perimeter}, S ={square}")
+
+A.I. Senchous, [06.11.2025 9:51]
+#14.4 import math
+R1=int(input())
+R2=int(input())
+def RingS(R1, R2):
+  if R1<=0 and R2<=0 and R1<=R2:
+    print("Ошибка")
+  else:
+    S=math.pi*(R1**2-R2**2)
+  return S
+square = RingS(R1,R2)
+print(f"S={square}")
+
+A.I. Senchous, [06.11.2025 9:59]
+#14.5
+def RectPS(x1, y1, x2, y2):
+    a = abs(x2 - x1)
+    b = abs(y2 - y1)
+    
+    P = 2 * (a + b)
+    S = a * b
+   return P, S
+RectPS(1, 1, 4, 5)
+    print(f"Периметр прямоугольника P = {P}")
+    print(f"Площадь прямоугольника S = {S}")
+
+A.I. Senchous, [06.11.2025 10:08]
+#14.6
+import math
+def TriangleP(a, h):
+    b2 = (a/2)2 + h  2
+    b = math.sqrt(b2)
+    P = a + 2 * b
+    return P
+print(f"Периметр треугольника: {TriangleP(14, 3)}")
+
+A.I. Senchous, [06.11.2025 10:12]
+#14.7
+def Invert(k):
+    return int(str(k)[::-1])
+
+print(Invert(12345))
+
+A.I. Senchous, [06.11.2025 10:18]
+#14.8
+def SumRange(a, b):
+    if a > b:
+        return 0
+    else:
+        summa = 0
+        for i in range(a, b + 1):
+            summa += i
+        return summa
+
+print(SumRange(1, 5))
+
+A.I. Senchous, [06.11.2025 10:30]
+#14.9
+def TypeTrl(x1, y1, x2, y2, x3, y3):
+    a = math.sqrt((x2 - x1)2 + (y2 - y1)**2)
+    b = math.sqrt((x3 - x2)**2 + (y3 - y2)**2)
+    c = math.sqrt((x1 - x3)**2 + (y1 - y3)**2)
+    sides = sorted([a, b, c])
+    if a == b == c:
+        return 'Треугольник Равносторонний'
+    elif (a == b and a != c) or (b == c and b != c) or (a == c and a != b):
+        return 'Треугольник Равнобедренный'
+    elif (a  2 + b  2 == c  2) or (b  2 + c  2 == a  2) or (a  2 + c  2 == b  2):
+        return 'Треугольник Прямоугольный'
+    else:
+        return 'Треугольник Обычный'
+print(TypeTrl(0, 0, 3, 0, 0, 4))
+
+A.I. Senchous, [06.11.2025 10:35]
+#14.10
+def Quarter(x, y):
+    if x == 0 or y == 0:
+        return 0
+    if x > 0 and y > 0:
+        return 1
+    elif x < 0 and y > 0:
+        return 2
+    elif x < 0 and y < 0:
+        return 3
+    else:
+        return 4
+
+print(Quarter(3, 4))
+
+A.I. Senchous, [06.11.2025 10:58]
+#14.11 —-
+
+A.I. Senchous, [06.11.2025 10:58]
+#14.12
+def Calc(o, a, b):
+    if o == 1:
+        return a - b
+    elif o == 2:
+        return a * b
+    elif o == 3:
+        return a // b
+    else:
+        return a + b
+
+print(Calc(2, 2, 3))
+
+A.I. Senchous, [06.11.2025 10:59]
+#14.13
+def LuckyNum(n):
+  if not (1000 <= n <= 9999):
+    return False
+  n1 = n // 1000
+  n2 = (n % 1000) // 100
+  n3 = (n % 100) // 10
+  n4 = n % 10
+  return (n1 + n2) == (n3 + n4)
+lucky_num = []
+for num in range(1000, 10000):
+    if LuckyNum(num):
+        lucky_num.append(num)
+print(f"Всего счастливых номеров: {len(lucky_num)}")
+
+A.I. Senchous, [06.11.2025 11:02]
+#14.14
+import math
+def DegToRad(d):
+    return d * math.pi/180
+
+print(DegToRad(180))
+
+A.I. Senchous, [06.11.2025 11:08]
+#14.15
+def IsLeapYear(Y):
+    if Y % 4 == 0:
+        return "Год ВИсокосный"
+    elif (Y % 100 == 0 and Y % 400 != 0) or Y % 4 != 0:
+        return "Год HeВИсокосный"
+print(IsLeapYear(2025))
