@@ -1,3 +1,427 @@
+#13.1a
+digits_set = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' }
+arithmetic_set = { '+', '-', '*', '/' }
+
+
+letters_af_set = { 'A', 'B', 'C', 'D', 'E', 'F' }
+
+letters_xz_set = { 'X', 'Y', 'Z' }
+
+print("Созданные множества:")
+print("=" * 40)
+print(f"Цифры: {sorted(digits_set)}")
+print(f"Знаки арифметических операций: {sorted(arithmetic_set)}")
+print(f"Буквы от A до F: {sorted(letters_af_set)}")
+print(f"Буквы от X до Z: {sorted(letters_xz_set)}")
+
+test_sequence = "A1B2+XY3*Z9"
+
+
+print(f"\nАнализ последовательности '{test_sequence}':")
+print(f"Найденные цифры: {sorted(digits)}")
+print(f"Найденные операции: {sorted(ops)}")
+print(f"Найденные буквы A-F: {sorted(af)}")
+print(f"Найденные буквы X-Z: {sorted(xz)}")
+
+#13.1b
+def find_missing_items(all_items, available_items):
+    all_items_set = set(all_items)
+    available_items_set = set(available_items)
+    missing_items = all_items_set - available_items_set
+    return sorted(missing_items)
+
+if name == "main":
+    all_products = list(range(1, 21))
+    available_products = [1, 2, 4, 5, 7, 8, 10, 11, 13, 14, 16, 17, 19, 20]
+    missing = find_missing_items(all_products, available_products)
+    print("Отсутствующие товары:", missing)
+
+#13.2a
+def count_digits_and_operators(input_str):
+    digits = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'}
+    operators = {'+', '-', '*'}
+    count_digits = sum(1 for char in input_str if char in digits)  
+    count_operators = sum(1 for char in input_str if char in operators)
+    return count_digits, count_operators
+ 
+user_input = "3 + 5 * 2 - 8"
+digits, operators = count_digits_and_operators(user_input)
+print(f"Количество цифр: {digits}")
+print(f"Количество операторов '+', '-', '*': {operators}")
+
+#13.2b
+def find_common_elements(list1, list2): 
+    set1 = set(list1)
+    set2 = set(list2)
+    common_elements = set1 & set2
+    return common_elements
+
+numbers1 = [3, 5, 7, 9, 11, 13]
+numbers2 = [2, 3, 5, 7, 11, 17]
+common_numbers = find_common_elements(numbers1, numbers2)
+print("Общие элементы:", common_numbers)
+
+#13.3a
+import string
+def process_text(input_str):
+    lowercase_letters = set(string.ascii_lowercase)
+    punctuation_chars = set(string.punctuation) 
+    letters_in_input = {char for char in input_str if char in lowercase_letters}
+    punctuation_count = sum(1 for char in input_str if char in punctuation_chars)
+    return letters_in_input, punctuation_count
+
+user_input = "Hello, world!"
+letters, punctuation = process_text(user_input)
+print("Строчные латинские буквы:", letters)
+print("Количество знаков препинания:", punctuation)
+
+#13.3b
+def is_subset(set_a, set_b):
+    return set_a.issubset(set_b)
+ 
+A = {1, 2, 3}
+B = {1, 2, 3, 4, 5}
+if is_subset(A, B):
+    print("Множество A является подмножеством множества B")
+else:
+    print("Множество A НЕ является подмножеством множества B")
+
+#13.4a
+def common_letters(sentence1, sentence2, sentence3):
+    set1 = set(sentence1.lower())  
+    set2 = set(sentence2.lower())
+    set3 = set(sentence3.lower())
+    common = set1 & set2 & set3
+    letters = {char for char in common if char.isalpha()}
+    return letters
+
+s1 = "Python is awesome!"
+s2 = "I love Python programming"
+s3 = "Python and Java are both popular"
+
+result = common_letters(s1, s2, s3)
+print("Общие буквы:", result)
+
+#13.4b
+def unique_subjects(uni1_students, uni2_students):
+    uni1_subjects = set()
+    uni2_subjects = set()
+    for student in uni1_students:
+        uni1_subjects.update(student["subjects"])
+    for student in uni2_students:
+        uni2_subjects.update(student["subjects"]) 
+    only_uni1 = uni1_subjects - uni2_subjects  
+    only_uni2 = uni2_subjects - uni1_subjects
+    return only_uni1, only_uni2
+
+university1 = [
+    {"id": 1, "subjects": ["Math", "Physics", "Chemistry"]},
+    {"id": 2, "subjects": ["Physics", "Biology"]}
+]
+
+university2 = [
+    {"id": 3, "subjects": ["Math", "Computer Science"]},
+    {"id": 4, "subjects": ["History", "Art"]}
+]
+
+uni1_only, uni2_only = unique_subjects(university1, university2)
+
+print("Предметы только первого университета:", uni1_only)
+print("Предметы только второго университета:", uni2_only)
+
+#13.5a
+def max_digit_in_numbers(a, b, c):
+    digits = set()
+    for number in [a, b, c]:
+        digits.update(set(str(abs(number))))
+    return max(digits) if digits else None
+ 
+num1 = 523  
+num2 = -194  
+num3 = 78
+result = max_digit_in_numbers(num1, num2, num3)
+print("Наибольшая цифра среди чисел:", result)
+
+#13.5b
+def unique_elements(set_a, set_b): 
+    return set_a.symmetric_difference(set_b)
+
+A = {1, 2, 3, 4, 5}
+B = {4, 5, 6, 7, 8}
+result = unique_elements(A, B)
+print("Элементы, присутствующие только в одном из множеств:", result)
+
+#13.6a
+def count_unique_digits(input_str):
+    digits = {char for char in input_str if char.isdigit()}  
+    return len(digits), digits
+ 
+text = "Текст с цифрами 12345 и 67890, а также 5 и 7"
+count, unique_digits = count_unique_digits(text)
+print(f"Количество уникальных цифр: {count}")
+print(f"Уникальные цифры: {unique_digits}")
+
+#13.6b
+def find_unique_products(purchases):
+    product_counts = {}
+    product_to_users = {}
+    for purchase in purchases:
+        user_id = purchase['user_id']
+        for product in purchase['products']:
+            if product not in product_counts:
+                product_counts[product] = 0  
+                product_to_users[product] = set()
+            product_counts[product] += 1  
+            product_to_users[product].add(user_id)
+    unique_products = [prod for prod, count in product_counts.items() 
+                      if count == 1]
+    return unique_products, product_to_users
+
+purchases = [
+    {'user_id': 1, 'products': ['Книга', 'Ручка']},
+    {'user_id': 2, 'products': ['Тетрадь', 'Ручка']},
+    {'user_id': 3, 'products': ['Книга', 'Карандаш']}
+]
+
+unique_prods, prod_users = find_unique_products(purchases)
+print("Товары, купленные одним пользователем:", unique_prods)
+
+#13.7a
+def unique_letters(*sentences):
+    letter_sets = [set(s.lower()) for s in sentences] 
+    unique_per_sentence = []
+    for i in range(len(letter_sets)):
+        other_letters = set()  
+        for j in range(len(letter_sets)):
+            if j != i:
+                other_letters.update(letter_sets[j])
+        unique = letter_sets[i] - other_letters
+        unique = {char for char in unique if char.isalpha()}
+        unique_per_sentence.append(unique)
+    return unique_per_sentence
+
+s1 = "Python is great"
+s2 = "Java is cool"
+s3 = "C++ is fast"
+result = unique_letters(s1, s2, s3)
+for i, letters in enumerate(result, 1):
+    print(f"Уникальные буквы в предложении {i}: {letters}")
+
+#13.7b-----
+
+#13.8a
+def can_form_target(str1, str2, target):
+    combined_chars = set(str1) | set(str2)
+    return set(target).issubset(combined_chars)
+
+string1 = "abcde"
+string2 = "fghij"
+target1 = "ace"
+target2 = "xyz"
+print(can_form_target(string1, string2, target1))
+print(can_form_target(string1, string2, target2))
+
+#13.8b
+def find_unique_skills(employees):
+    all_skills = {}
+    skill_count = {}
+    for emp in employees:
+        for skill in emp['skills']:
+            if skill not in skill_count:
+                skill_count[skill] = 0
+                all_skills[skill] = set()
+            skill_count[skill] += 1
+            all_skills[skill].add(emp['id'])
+    unique_skills = [skill for skill, count in skill_count.items() if count == 1]
+    skill_to_employee = {skill: list(all_skills[skill])[0] for skill in unique_skills}
+    return unique_skills, skill_to_employee
+
+employees = [
+    {'id': 1, 'skills': ['Python', 'SQL', 'Java']},
+    {'id': 2, 'skills': ['Python', 'C++']},
+    {'id': 3, 'skills': ['JavaScript', 'SQL']}
+]
+
+unique_skills, skill_owners = find_unique_skills(employees)
+print("Уникальные навыки:", unique_skills)
+print("Сотрудники с уникальными навыками:", skill_owners)
+
+#13.9a
+def find_russian_vowels(text):  
+    vowels = {'а', 'е', 'ё', 'и', 'о', 'у', 'ы', 'э', 'ю', 'я'}  
+    found_vowels = {char.lower() for char in text if char.lower() in vowels}  
+    return sorted(found_vowels)
+ 
+text = "Пример текста с гласными: о, а, е, и, у, ы, э. А также Ё и Ю!"
+result = find_russian_vowels(text)
+print(result)
+
+#13.9b
+def find_unique_categories(products):
+    category_count = {}
+    category_to_product = {}
+    for product in products:
+        product_id = product["id"]
+        for category in product["categories"]:
+            if category not in category_count:
+                category_count[category] = 0  
+                category_to_product[category] = set()
+            category_count[category] += 1  
+            category_to_product[category].add(product_id)
+    unique_categories = [cat for cat, count in category_count.items() if count == 1]
+    return unique_categories
+
+products = [
+    {"id": 1, "categories": ["Электроника", "Смартфоны"]},
+    {"id": 2, "categories": ["Электроника", "Ноутбуки"]},
+    {"id": 3, "categories": ["Одежда", "Футболки"]},
+    {"id": 4, "categories": ["Ноутбуки"]}
+]
+result = find_unique_categories(products)
+print(result)
+
+#13.10a
+def unique_digits(number): 
+    digits = set(str(abs(number)))
+    digits = {d for d in digits if d.isdigit()}
+    return sorted(int(d) for d in digits)
+
+num = 12345678901234567890  
+print(unique_digits(num))
+
+#13.10b
+def is_strict_subset(A, B):
+    return len(A - B) == 0 and len(B - A) > 0
+
+set_A = {1, 2, 3}
+set_B = {1, 2, 3, 4, 5}
+set_C = {1, 2, 3}
+set_D = {1, 2, 4}
+print(is_strict_subset(set_A, set_B)) 
+print(is_strict_subset(set_A, set_C))  
+print(is_strict_subset(set_A, set_D))
+
+#13.11a
+def count_vowels_consonants(text):
+    vowels = {'а', 'е', 'ё', 'и', 'о', 'у', 'ы', 'э', 'ю', 'я',
+              'a', 'e', 'i', 'o', 'u', 'y'} 
+    consonants = {'б', 'в', 'г', 'д', 'ж', 'з', 'й', 'к', 'л', 'м',
+                 'н', 'п', 'р', 'с', 'т', 'ф', 'х', 'ц', 'ч', 'ш', 'щ',
+                 'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm',
+                 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'z'} 
+    vowel_count = 0  
+    consonant_count = 0
+    for char in text.lower():
+        if char in vowels:
+            vowel_count += 1  
+        elif char in consonants:
+            consonant_count += 1  
+    if vowel_count > consonant_count:
+        return "Гласных букв больше"
+    elif consonant_count > vowel_count:
+        return "Согласных букв больше"
+    else:
+        return "Гласных и согласных букв поровну"
+  
+text = "Это пример текста для анализа буквенного состава"
+print(count_vowels_consonants(text))
+
+#13.11b
+def products_ordered_only_on_date(orders, target_date):  
+    product_days = {}
+    for order in orders:
+        date = order['date']
+        for product in order['products']:
+            if product not in product_days:
+                product_days[product] = set()
+            product_days[product].add(date)
+    unique_products = []
+    for product, days in product_days.items():
+        if days == {target_date}:
+            unique_products.append(product)
+    return unique_products
+
+orders = [
+    {'date': '2023-05-01', 'products': ['Книга', 'Ручка']},
+    {'date': '2023-05-02', 'products': ['Тетрадь', 'Ручка']},  
+    {'date': '2023-05-01', 'products': ['Карандаш', 'Ластик']},
+    {'date': '2023-05-03', 'products': ['Книга', 'Карандаш']}
+]
+
+target_date = '2023-05-01'
+result = products_ordered_only_on_date(orders, target_date)
+print(f"Товары, заказанные только {target_date}: {result}")
+
+#13.12a
+def missing_digits(number):
+    all_digits = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'}
+    number_digits = set(str(number))
+    missing = all_digits - number_digits 
+    return sorted(int(digit) for digit in missing)
+
+print(missing_digits(12345))
+
+#13.12b
+def is_superset(A, B):
+    return B.issubset(A) and A != B
+def is_superset_alt(A, B):
+    return len(B - A) == 0 and len(A - B) > 0
+ 
+A = {1, 2, 3, 4, 5}
+B = {2, 3, 4}
+print(is_superset(A, B))
+
+#13.13a
+A = '45678'
+B = '45'
+an = set(i for i in A if i not in B)
+print(an)
+
+#13.13b
+a = {1:['молоко', 'йогурт', 'хлеб'], 2:['молоко', 'мясо']}
+b = set()
+for i in a:
+    b.update(a[i])
+print(b)
+
+#13.14
+def find_missing_consonants(text):
+    """
+    а) Находит все согласные буквы, которые не встречаются в тексте.
+    """
+    all_consonants = set('бвгджзйклмнпрстфхцчшщ')
+    text_chars = set(text.lower())
+    missing = all_consonants - text_chars
+    return sorted(missing)
+
+def are_sets_equal(A, B):
+    """
+    б) Проверяет, равны ли два множества.
+    """
+    return A == B
+if name == "main":
+    print("РЕШЕНИЕ ЗАДАЧ С ИСПОЛЬЗОВАНИЕМ МНОЖЕСТВ")
+    print("=" * 50)
+    
+    # Задача а)
+    text1 = "Привет, как дела?"
+    missing1 = find_missing_consonants(text1)
+    print(f"Текст: '{text1}'")
+    print(f"Отсутствующие согласные: {missing1}")
+    
+    # Задача б)
+    set_A = {1, 2, 3, 4, 5}
+    set_B = {5, 4, 3, 2, 1}
+    set_C = {1, 2, 3, 6, 7}
+    
+    print(f"\nМножество A: {set_A}")
+    print(f"Множество B: {set_B}")
+    print(f"Множество C: {set_C}")
+    
+    print(f"\nA == B: {are_sets_equal(set_A, set_B)}")
+    print(f"A == C: {are_sets_equal(set_A, set_C)}")
+    print(f"B == C: {are_sets_equal(set_B, set_C)}")
+
 #14.1
 import math
 X=int(input())
