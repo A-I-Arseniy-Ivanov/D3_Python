@@ -1,0 +1,142 @@
+#2.1
+a = float(input())
+b = float(input())
+c = float(input())
+V = a*b*c
+S = 2*(a*b+b*c+a*c)
+print(f'V -> {V}')
+print(f'S -> {S}')
+
+#2.2
+R = float(input())
+pi = 3.141
+L = 2*pi*R
+S = pi * R**2
+print(f'L -> {L}')
+print(f'S -> {S}')
+
+#2.3
+a = float(input())
+b = float(input())
+c = (a**2 + b**2)**0.5
+P = a+b+c
+print(f'c -> {c}')
+print(f'P -> {P}')
+
+#2.4
+R1 = float(input())
+R2 = float(input())
+pi = 3.141
+S1 = pi * R1**2
+S2 = pi * R2**2
+S3 = S1 - S2
+print(f'S1 -> {S1}')
+print(f'S2 -> {S2}')
+print(f'S3 -> {S3}')
+
+#2.5
+x1 = float(input())
+y1 = float(input())
+x2 = float(input())
+y2 = float(input())
+a = abs(x2-x1)
+b = abs(y2-y1)
+P = (a+b)*2
+S = a*b
+print(f'P -> {P}')
+print(f'S -> {S}')
+
+#2.6
+x1 = float(input())
+y1 = float(input())
+x2 = float(input())
+y2 = float(input())
+L = ((x2-x1)**2 + (y2-y1)**2)**0.5
+print(f'L -> {L}')
+
+#2.7
+x1 = float(input())
+y1 = float(input())
+x2 = float(input())
+y2 = float(input())
+x3 = float(input())
+y3 = float(input())
+ax = x1 - x2
+ay = y1 - y2
+bx = x1 - x3
+by = y1 - y3
+cx = x3 - x2
+cy = y3 - y2
+a = (ax**2 + ay**2)**0.5
+b = (bx**2 + by**2)**0.5
+c = (cx**2 + cy**2)**0.5
+P = a+b+c
+p = P/2
+S = (p*(p-a)*(p-b)*(p-c))**0.5
+print(f'P -> {P}')
+print(f'S -> {S}')
+
+#2.8
+T = float(input())
+Tc = (T - 32)*(5/9)
+print(f'Tc -> {Tc}')
+
+#2.9
+X = float(input())
+A = float(input())
+Y = float(input())
+B = float(input())
+K = A/X
+I = B/Y
+RZ = K/I
+print(f'1 кг конфет стоит -> {K}')
+print(f'1 кг ирисок стоит -> {I}')
+print(f'отношение стоимости -> {RZ}')
+
+#2.10
+A1 = float(input())
+B1 = float(input())
+C1 = float(input())
+A2 = float(input())
+B2 = float(input())
+C2 = float(input())
+D = A1 * B2 - A2*B1
+x = (C1*B2 - C2*B1)/D
+y = (A1*C2 - A2*C1)/D
+print(f'x -> {x}')
+print(f'y -> {y}')
+
+#2.11
+alpha = float(input())
+RAD = (alpha * 180)/3.141
+print(f'значение угла альфа в радианах -> {RAD}')
+
+#2.12
+V1 = float(input())
+V2 = float(input())
+S = float(input())
+T = float(input())
+St = V1*T+V2*T+S
+print(f'расстояние между автомобилями через {T} час(ов) -> {St}')
+
+#2.14
+chsl1 = float(input())
+chsl2 = float(input())
+summa = chsl1 + chsl2
+razn = chsl1 + chsl2
+proiz = chsl1 * chsl2
+chas = chsl1**2 / chsl2**2
+print(f'сумма чисел -> {summa}')
+print(f'разность чисел -> {razn}')
+print(f'произведение чисел -> {proiz}')
+print(f'частное квадров чисел -> {chas}')
+
+#2.15
+V = float(input())
+U = float(input())
+T1 = float(input())
+T2 = float(input())
+S = V*T1
+Su = (V-U)*T2
+print(f'Путь пройденный в озере -> {S}')
+print(f'Путь пройденный по реке против течения -> {Su}')
